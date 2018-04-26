@@ -1,7 +1,7 @@
 import * as React from 'react';
 import '../styles/main-component.less';
 
-export class MainComponent extends React.Component<{}, {}>{
+export class MainComponent extends React.Component {
 
     getMessage() {
         return 'react + typescript demo';

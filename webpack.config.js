@@ -1,16 +1,15 @@
 ﻿const path = require("path");
 const webpack = require('webpack');
 const WebpackBuildNotifierPlugin = require('webpack-build-notifier');
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 const app = {
 	devtool: "cheap-module-eval-source-map",
 	resolve: {
-		extensions: [".webpack.js", ".web.js", ".ts", ".tsx", ".js"]
+		extensions: [".webpack.js", ".jsx", ".js"]
 	},
 	context: path.join(__dirname),
 	entry: {
-		"main": path.join(__dirname, "frontend", "main.tsx")
+		"main": path.join(__dirname, "frontend", "main.jsx")
 	},
 	output: {
 		path: path.resolve(__dirname, "bundles"),
@@ -27,14 +26,14 @@ const app = {
 	},
 	module: {
 		rules: [{
-				test: /\.tsx?$/,
-				exclude: /node_modules/,
-				use: [{
-					loader: "ts-loader",
+				test: /\.jsx?$/,
+				exclude: /(node_modules|bower_components)/,
+				use: {
+					loader: 'babel-loader',
 					options: {
-						transpileOnly: true
+						presets: ['@babel/preset-env', '@babel/preset-react']
 					}
-				}]
+				}
 			},
 			{
 				test: /\.less$/,
@@ -70,7 +69,6 @@ const app = {
 		]
 	},
 	plugins: [
-		new ForkTsCheckerWebpackPlugin(),
 		new WebpackBuildNotifierPlugin({
 			title: "PojectName Webpack Build",
 			logo: path.resolve("./favicon.ico"),
