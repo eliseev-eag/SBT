@@ -1,22 +1,22 @@
 import * as React from 'react';
-import '../styles/main-component.less';
+import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
+import { MainPage } from './MainPage';
+import { Header } from './Header';
 
 export class MainComponent extends React.Component {
-
-    getMessage() {
-        return 'react + typescript demo';
-    }
-
     render() {
         return (
-            <div>
-                <h1>
-                    {this.getMessage()}
-                </h1>
-                <div className="logos">
-                    <div className="react-logo" />
-                </div>
-            </div>
+            <Router>
+                <React.Fragment>
+                    <Header />
+                    <Switch >
+                        <Route path="/list" component={MainPage} />
+                        <Route path="/add" component={MainPage} />
+                        <Route path="/settings" component={MainPage} />
+                        <Redirect to="/list" />
+                    </Switch>
+                </React.Fragment>
+            </Router>
         );
     }
 }

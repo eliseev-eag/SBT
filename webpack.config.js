@@ -1,6 +1,7 @@
 ﻿const path = require("path");
 const webpack = require('webpack');
 const WebpackBuildNotifierPlugin = require('webpack-build-notifier');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const app = {
 	devtool: "cheap-module-eval-source-map",
@@ -13,8 +14,7 @@ const app = {
 	},
 	output: {
 		path: path.resolve(__dirname, "bundles"),
-		filename: "[name].js",
-		publicPath: "/bundles/"
+		filename: "[name].js"
 	},
 	stats: {
 		// Add information about the reasons why modules are included
@@ -75,7 +75,9 @@ const app = {
 			suppressSuccess: true
 		}),
 		new webpack.NamedModulesPlugin(),
-
+		new HtmlWebpackPlugin({
+			template: 'template.html'
+		})
 	],
 	devServer: {
 		contentBase: __dirname,
@@ -84,7 +86,7 @@ const app = {
 		clientLogLevel: "info",
 		open: true,
 		inline: true,
-		publicPath: "http://localhost:9005/bundles/",
+		publicPath: "http://localhost:9005/",
 		headers: {
 			"Access-Control-Allow-Origin": "*"
 		},
