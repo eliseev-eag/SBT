@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';
-import { Table } from './Table';
+import { TableContainer } from '../containers/TableContainer';
 
 export class MainPage extends React.Component {
     render() {
@@ -8,7 +8,7 @@ export class MainPage extends React.Component {
             <Grid fluid>
                 <Row >
                     <Col sm={12} md={9}>
-                        <Table />
+                        <TableContainer />
                     </Col>
                     <Col sm={12} md={3}>
                     </Col>

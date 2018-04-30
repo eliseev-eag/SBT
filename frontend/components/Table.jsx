@@ -7,43 +7,47 @@ export class Table extends React.Component {
             <BootstrapTable responsive >
                 <thead>
                     <tr>
-                        <th>#</th>
-                        <th>Table heading</th>
-                        <th>Table heading</th>
-                        <th>Table heading</th>
-                        <th>Table heading</th>
-                        <th>Table heading</th>
-                        <th>Table heading</th>
+                        {
+                            this.props.settings.surname ?
+                                <th>Фамилия</th> : undefined
+                        }
+                        {
+                            this.props.settings.firstName ?
+                                <th>Имя</th> : undefined
+                        }
+                        {
+                            this.props.settings.lastName ?
+                                <th>Отчество</th> : undefined
+                        }
+                        {
+                            this.props.settings.birthday ?
+                                <th>Дата рождения</th> : undefined
+                        }
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
-                    </tr>
+                    {
+                        [1, 2, 3].map(p =>
+                            <tr key={p}>
+                                {
+                                    this.props.settings.surname ?
+                                        <td>Иванов</td> : undefined
+                                }
+                                {
+                                    this.props.settings.firstName ?
+                                        <td>Иван</td> : undefined
+                                }
+                                {
+                                    this.props.settings.lastName ?
+                                        <td>Иванович</td> : undefined
+                                }
+                                {
+                                    this.props.settings.birthday ?
+                                        <td>17.03.1992</td> : undefined
+                                }
+                            </tr>
+                        )
+                    }
                 </tbody>
             </BootstrapTable>
         )
