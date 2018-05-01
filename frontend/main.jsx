@@ -5,7 +5,6 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from "react-router-dom";
 import store from './store';
 import { MainComponent } from './components/MainComponent';
-import './styles/shared-styles.less'
 
 ReactDOM.render(
     <AppContainer>

@@ -26,46 +26,33 @@ const app = {
 	},
 	module: {
 		rules: [{
-				test: /\.jsx?$/,
-				exclude: /(node_modules|bower_components)/,
-				use: {
-					loader: 'babel-loader',
-					options: {
-						presets: ['@babel/preset-env', '@babel/preset-react']
-					}
-				}
-			},
-			{
-				test: /\.less$/,
-				use: [{
-						loader: "style-loader"
-					},
-					{
-						loader: "css-loader",
-						options: {
-							url: true
-						}
-					},
-					{
-						loader: "less-loader",
-						options: {
-							noIeCompat: true
-						}
-					}
-				]
-			},
-			{
-				test: /\.svg$/,
-				use: {
-					loader: "svg-url-loader"
-				}
-			},
-			{
-				test: /\.(png|jpe?g|woff|woff2|eot|ttf)$/,
-				use: {
-					loader: "url-loader"
+			test: /\.jsx?$/,
+			exclude: /(node_modules|bower_components)/,
+			use: {
+				loader: 'babel-loader',
+				options: {
+					presets: ['@babel/preset-env', '@babel/preset-react']
 				}
 			}
+		},
+		{
+			test: /\.css$/,
+			use: [{
+				loader: "style-loader"
+			},
+			{
+				loader: "css-loader",
+				options: {
+					url: true
+				}
+			}]
+		},
+		{
+			test: /\.(png|jpe?g|woff|woff2|eot|ttf)$/,
+			use: {
+				loader: "url-loader"
+			}
+		}
 		]
 	},
 	plugins: [
