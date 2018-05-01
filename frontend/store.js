@@ -1,4 +1,5 @@
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import { combineForms } from 'react-redux-form';
 
 const initialEmployeeFieldsState = {
@@ -20,6 +21,6 @@ const initialEmployeesState = [
 const store = createStore(combineForms({
     employeeFields: initialEmployeeFieldsState,
     employees: initialEmployeesState
-}));
+}), applyMiddleware(thunk));
 
 export default store;
