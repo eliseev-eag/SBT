@@ -7,47 +7,21 @@ export class Table extends React.Component {
             <BootstrapTable responsive >
                 <thead>
                     <tr>
-                        {
-                            this.props.settings.surname ?
-                                <th>Фамилия</th> : undefined
-                        }
-                        {
-                            this.props.settings.firstName ?
-                                <th>Имя</th> : undefined
-                        }
-                        {
-                            this.props.settings.lastName ?
-                                <th>Отчество</th> : undefined
-                        }
-                        {
-                            this.props.settings.birthday ?
-                                <th>Дата рождения</th> : undefined
+                        {Object.values(this.props.employeeFields).map(p => p.visible ?
+                            <th key={p.fieldName}>{p.fieldName}</th> : undefined)
                         }
                     </tr>
                 </thead>
                 <tbody>
-                    {
-                        [1, 2, 3].map(p =>
-                            <tr key={p}>
-                                {
-                                    this.props.settings.surname ?
-                                        <td>Иванов</td> : undefined
-                                }
-                                {
-                                    this.props.settings.firstName ?
-                                        <td>Иван</td> : undefined
-                                }
-                                {
-                                    this.props.settings.lastName ?
-                                        <td>Иванович</td> : undefined
-                                }
-                                {
-                                    this.props.settings.birthday ?
-                                        <td>17.03.1992</td> : undefined
-                                }
-                            </tr>
-                        )
-                    }
+                    {this.props.employees.map(employee =>
+                        <tr>
+                            {
+                                Object.entries(employee).map(([key, value]) =>
+                                    this.props.employeeFields[key].visible ?
+                                        <td >{value}</td> : undefined)
+                            }
+                        </tr>
+                    )}
                 </tbody>
             </BootstrapTable>
         )
