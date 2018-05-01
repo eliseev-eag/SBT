@@ -5,7 +5,7 @@ import { FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
 export class EmployeeForm extends React.Component {
     render() {
         return (
-            <Form model="employees[0]" onSubmit={this.props.save}>
+            <Form model="employees[employees.lenght]" onSubmit={this.props.save}>
                 <FormGroup>
                     <ControlLabel>Фамилия</ControlLabel>
                     <Control.text model=".surname" type="text" component={FormControl} />
