@@ -39,7 +39,7 @@ export class Table extends React.Component {
                 </thead>
                 <tbody>
                     {this.props.employees.map(employee =>
-                        <tr>
+                        <tr key={employee.id} onClick={() => this.props.onSelectRow(employee.id)}>
                             {
                                 this.props.employeeFields.surname.visible ?
                                     <td>{employee.surname}</td> : undefined
