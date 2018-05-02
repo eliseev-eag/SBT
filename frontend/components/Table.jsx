@@ -23,6 +23,18 @@ export class Table extends React.Component {
                             this.props.employeeFields.birthday.visible ?
                                 <th>{this.props.employeeFields.birthday.fieldName}</th> : undefined
                         }
+                        {
+                            this.props.employeeFields.division.visible ?
+                                <th>{this.props.employeeFields.division.fieldName}</th> : undefined
+                        }
+                        {
+                            this.props.employeeFields.position.visible ?
+                                <th>{this.props.employeeFields.position.fieldName}</th> : undefined
+                        }
+                        {
+                            this.props.employeeFields.personalNumber.visible ?
+                                <th>{this.props.employeeFields.personalNumber.fieldName}</th> : undefined
+                        }
                     </tr>
                 </thead>
                 <tbody>
@@ -43,6 +55,18 @@ export class Table extends React.Component {
                             {
                                 this.props.employeeFields.birthday.visible ?
                                     <td>{employee.birthday}</td> : undefined
+                            }
+                            {
+                                this.props.employeeFields.division.visible ?
+                                    <td>{employee.division}</td> : undefined
+                            }
+                            {
+                                this.props.employeeFields.position.visible ?
+                                    <td>{employee.position}</td> : undefined
+                            }
+                            {
+                                this.props.employeeFields.personalNumber.visible ?
+                                    <td>{employee.personalNumber}</td> : undefined
                             }
                         </tr>
                     )}

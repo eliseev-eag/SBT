@@ -23,6 +23,15 @@ export class SettingsPage extends React.Component {
                         <Control.checkbox model=".birthday.visible" component={Checkbox} >
                             Дата рождения
                         </Control.checkbox>
+                        <Control.checkbox model=".division.visible" component={Checkbox} >
+                            Подразделение
+                        </Control.checkbox>
+                        <Control.checkbox model=".position.visible" component={Checkbox} >
+                            Должность
+                        </Control.checkbox>
+                        <Control.checkbox model=".personalNumber.visible" component={Checkbox} >
+                            Табельный номер
+                        </Control.checkbox>
                     </FormGroup>
                 </Form>
             </Grid>
