@@ -29,17 +29,29 @@ export class EmployeeForm extends React.Component {
                 >
                     <FormGroup>
                         <ControlLabel>{this.props.fields.surname.fieldName}</ControlLabel>
-                        <Control.text model=".surname" type="text" required readOnly={this.props.readOnly} component={FormControl} />
+                        <Control.text model=".surname" type="text"
+                            required readOnly={this.props.readOnly}
+                            defaultValue={this.props.readOnly ? this.props.selectedEmployee.surname : undefined}
+                            component={FormControl} />
                         <ControlLabel>{this.props.fields.firstName.fieldName}</ControlLabel>
-                        <Control.text model=".firstName" type="text" required readOnly={this.props.readOnly} component={FormControl} />
+                        <Control.text model=".firstName" type="text"
+                            required readOnly={this.props.readOnly}
+                            defaultValue={this.props.readOnly ? this.props.selectedEmployee.firstName : undefined}
+                            component={FormControl} />
                         <ControlLabel>{this.props.fields.lastName.fieldName}</ControlLabel>
-                        <Control.text model=".lastName" type="text" required readOnly={this.props.readOnly} component={FormControl} />
+                        <Control.text model=".lastName" type="text"
+                            required readOnly={this.props.readOnly}
+                            defaultValue={this.props.readOnly ? this.props.selectedEmployee.lastName : undefined}
+                            component={FormControl} />
                         <ControlLabel>{this.props.fields.birthday.fieldName}</ControlLabel>
-                        <Control.input model=".birthday" type="date" required readOnly={this.props.readOnly}
+                        <Control.input model=".birthday" type="date"
+                            required readOnly={this.props.readOnly}
+                            defaultValue={this.props.readOnly ? this.props.selectedEmployee.birthday : undefined}
                             component={this.props.readOnly ? FormControl : DatePickerWrapper} />
                         <ControlLabel>{this.props.fields.division.fieldName}</ControlLabel>
                         <Control.select model=".division" type="text"
-                            defaultValue={this.props.divisionValues[0]} readOnly={this.props.readOnly}
+                            defaultValue={this.props.readOnly ? this.props.selectedEmployee.division : this.props.divisionValues[0]}
+                            readOnly={this.props.readOnly}
                             required componentClass="select" component={FormControl} >
                             {this.props.divisionValues.map(value =>
                                 <option key={value} value={value}>{value}</option>
@@ -47,16 +59,20 @@ export class EmployeeForm extends React.Component {
                         </Control.select>
                         <ControlLabel>{this.props.fields.position.fieldName}</ControlLabel>
                         <Control.select model=".position" type="text"
-                            defaultValue={this.props.positionValues[0]} readOnly={this.props.readOnly}
+                            defaultValue={this.props.readOnly ? this.props.selectedEmployee.position : this.props.positionValues[0]}
+                            readOnly={this.props.readOnly}
                             required componentClass="select" component={FormControl} >
                             {this.props.positionValues.map(value =>
                                 <option key={value} value={value}>{value}</option>
                             )}
                         </Control.select>
                         <ControlLabel>{this.props.fields.personalNumber.fieldName}</ControlLabel>
-                        <Control.text model=".personalNumber" type="number" readOnly={this.props.readOnly} required component={FormControl} />
+                        <Control.text model=".personalNumber" type="number"
+                            readOnly={this.props.readOnly} required
+                            defaultValue={this.props.readOnly ? this.props.selectedEmployee.personalNumber : undefined}
+                            component={FormControl} />
                     </FormGroup>
-                    {this.props.readOnly ?
+                    {!this.props.readOnly ?
                         <Button type="submit">Сохранить</Button>
                         : undefined}
                 </LocalForm>
