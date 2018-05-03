@@ -3,11 +3,10 @@ import { actions } from 'react-redux-form';
 import uuid from 'uuid/v4';
 import { EmployeeForm } from '../components/EmployeeForm';
 
-const mapStateToProps = (state, ownProps) => ({
+const mapStateToProps = state => ({
     fields: state.employeeFields,
     divisionValues: state.divisions,
-    positionValues: state.positions,
-    selectedEmployee: state.employees.find(p => p.id === ownProps.selectedEmployeeId)
+    positionValues: state.positions
 })
 
 const mapDispatchToProps = dispatch => ({

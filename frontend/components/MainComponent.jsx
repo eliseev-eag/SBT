@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Route, Switch, Redirect } from "react-router-dom";
-import { MainPage } from './MainPage';
+import { EmployeeListPage } from './EmployeeListPage';
 import { Header } from './Header';
 import { SettingsPage } from './SettingsPage';
-import { EmployeeFormContainer } from '../containers/EmployeeFormContainer';
+import {AddEmployeePage} from './AddEmployeePage';
 
 export class MainComponent extends React.Component {
     render() {
@@ -11,8 +11,8 @@ export class MainComponent extends React.Component {
             <React.Fragment>
                 <Header />
                 <Switch >
-                    <Route path="/list" component={MainPage} />
-                    <Route path="/add" component={EmployeeFormContainer} />
+                    <Route path="/list" component={EmployeeListPage} />
+                    <Route path="/add" component={AddEmployeePage} />
                     <Route path="/settings" component={SettingsPage} />
                     <Redirect to="/list" />
                 </Switch>

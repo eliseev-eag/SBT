@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Table as BootstrapTable } from 'react-bootstrap';
 
-export class Table extends React.Component {
+export class EmployeeTable extends React.Component {
     render() {
         return (
             <BootstrapTable responsive >

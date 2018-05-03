@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';
-import { TableContainer } from '../containers/TableContainer';
-import { EmployeeFormContainer } from '../containers/EmployeeFormContainer';
+import { EmployeeTableContainer } from '../containers/EmployeeTableContainer';
+import { EmployeeReadOnlyFormContainer } from '../containers/EmployeeReadOnlyFormContainer';
 
-export class MainPage extends React.Component {
+export class EmployeeListPage extends React.Component {
     constructor(props) {
         super(props);
 
@@ -15,10 +15,10 @@ export class MainPage extends React.Component {
             <Grid fluid>
                 <Row >
                     <Col sm={12} md={9}>
-                        <TableContainer onSelectRow={value => this.setState({ selectedEmployeeId: value })} />
+                        <EmployeeTableContainer onSelectRow={value => this.setState({ selectedEmployeeId: value })} />
                     </Col>
                     <Col sm={12} md={3}>
-                        <EmployeeFormContainer readOnly selectedEmployeeId={this.state.selectedEmployeeId} />
+                        <EmployeeReadOnlyFormContainer selectedEmployeeId={this.state.selectedEmployeeId} />
                     </Col>
                 </Row>
             </Grid>

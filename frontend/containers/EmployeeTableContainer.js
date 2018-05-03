@@ -1,9 +1,9 @@
 import { connect } from 'react-redux';
-import { Table } from '../components/Table';
+import { EmployeeTable } from '../components/EmployeeTable';
 
 const mapStateToProps = state => ({
     employeeFields: state.employeeFields,
     employees: state.employees
 })
 
-export const TableContainer = connect(mapStateToProps)(Table);
+export const EmployeeTableContainer = connect(mapStateToProps)(EmployeeTable);
