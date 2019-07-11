@@ -1,1 +1,3 @@
-# react-ts-boilerplate
+## Тестовое задание для АО "Сбербанк-технологии"
+
+Реализация доступна по [ссылке](https://eliseev-eag.github.io/SBT)
